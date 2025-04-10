@@ -33,7 +33,15 @@ Extensiones de utilidad:
 * [LOVE](https://marketplace.visualstudio.com/items?itemName=bschulte.love)
 
 
-### Enlaces de Interés
+## Enlaces de Interés
 
 * [Documentación LÖVE Game Framework](https://love2d.org/wiki/Main_Page)
 * [Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax)
+* [How to Write Better Git Commit Messages](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+
+## Misc
+
+* [Paleta Woodspak](https://lospec.com/palette-list/woodspark)
+* [Paleta Urbex 16](https://lospec.com/palette-list/urbex-16)
+* [Paleta Jobs H16DA](https://lospec.com/palette-list/h16da)
+* [Paleta Jobs Darkseed 16](https://lospec.com/palette-list/darkseed-16)
