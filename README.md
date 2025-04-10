@@ -33,7 +33,7 @@ Para colaborar en el proyecto:
 
 Extensiones de utilidad:
 * [LOVE](https://marketplace.visualstudio.com/items?itemName=bschulte.love)
-
+* [Local Lua Debugger](https://marketplace.visualstudio.com/items?itemName=tomblind.local-lua-debugger-vscode)
 
 ## Enlaces de Interés
 
@@ -43,6 +43,7 @@ Extensiones de utilidad:
 
 ## Misc
 
+* [Learn Lua in 15 Minutes](https://tylerneylon.com/a/learn-lua)
 * [Paleta Woodspak](https://lospec.com/palette-list/woodspark)
 * [Paleta Urbex 16](https://lospec.com/palette-list/urbex-16)
 * [Paleta Jobs H16DA](https://lospec.com/palette-list/h16da)
