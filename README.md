@@ -4,6 +4,8 @@ Juego donde el objetivo es conseguir el máximo número de puntos capturando pec
 
 ## Mecánica del juego
 
+Si un animal no come en un cierto tiempo, muere de hambre.
+
 El mar está dividido verticalmente en tres zonas:
 * Zona alta
 * Zona media
