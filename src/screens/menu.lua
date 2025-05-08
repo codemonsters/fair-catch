@@ -2,8 +2,9 @@ local menu = {
     name = "Pantalla menú"
 }
 
--- carga este screen
+-- carga esta pantalla
 function menu.load()
+    
 end
 
 function menu.update(dt)
@@ -17,6 +18,9 @@ function menu.draw()
 end
 
 function menu.keypressed(key, scancode, isrepeat)
+    if scancode == "space" then
+        changeScreen(require("screens/playing"))
+    end
 end
 
 function menu.keyreleased(key, scancode, isrepeat)

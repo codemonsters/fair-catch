@@ -18,7 +18,7 @@ Mobile = love.system.getOS() == "iOS" or love.system.getOS() == "Android" -- fla
 
 local screen = nil
 
-function ChangeScreen(newScreen)
+function changeScreen(newScreen)
     Log.debug("cargando pantalla: " .. newScreen.name)
     screen = newScreen
     screen.load()
@@ -57,7 +57,7 @@ function love.load()
 
     math.randomseed(os.time()) -- NOTE: Quizá redundante, parece que Love ya inicializa la semilla random automáticamente
 
-    ChangeScreen(require("screens/menu"))
+    changeScreen(require("screens/menu"))
     Log.info("Juego cargado")
 end
 
@@ -114,5 +114,3 @@ function updateCanvasScaleVariables(windowWidth, windowHeight)
     CanvasShiftX = (windowWidth - CanvasScaleFactor * WORLD_WIDTH) / 2
     CanvasShiftY = (windowHeight - CanvasScaleFactor * WORLD_HEIGHT) / 2
 end
-
-
