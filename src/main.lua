@@ -12,7 +12,8 @@ end
 Log = require("libraries/log/log") -- https://github.com/rxi/log.lua
 Log.level = "trace"
 
-WORLD_WIDTH, WORLD_HEIGHT = 640, 360 -- El juego se crea por completo dentro de una pantalla de este tamaño (y posteriormente se escala según sea necesario)
+--WORLD_WIDTH, WORLD_HEIGHT = 640, 360 -- El juego se crea por completo dentro de una pantalla de este tamaño (y posteriormente se escala según sea necesario)
+WORLD_WIDTH, WORLD_HEIGHT = 384, 216 -- El juego se crea por completo dentro de una pantalla de este tamaño (y posteriormente se escala según sea necesario)
 
 Mobile = love.system.getOS() == "iOS" or love.system.getOS() == "Android" -- flag para reflejar si se está ejecutando en un dispositivo móvil
 
@@ -57,6 +58,8 @@ function love.load()
 
     math.randomseed(os.time()) -- NOTE: Quizá redundante, parece que Love ya inicializa la semilla random automáticamente
 
+    -- set window title
+    love.window.setTitle("Fair Catch")
     changeScreen(require("screens/menu"))
     Log.info("Juego cargado")
 end
