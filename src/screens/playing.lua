@@ -2,15 +2,12 @@ local playing = {
     name = "Pantalla de juego",
     img_background = love.graphics.newImage("assets/images/background.png")
 }
-local newSardine = require("entities/sardine")
+local newSardine1 = require("entities.sardine1")
 local creatures = {};
 
 -- carga este screen
 function playing.load()
-    newSardine(1,1)
-    --table.insert(creatures, newSardine(WORLD_WIDTH, 0))
-    table.insert(creatures, newSardine(0, 0))
-    --table.insert(creatures, newSardine(20, 20))
+    table.insert(creatures, newSardine1(350, 10))
 end
 
 function playing.update(dt)
@@ -27,6 +24,14 @@ function playing.draw()
     for k, creature in pairs(creatures) do
         creature:draw()
     end
+
+    -- líneas que dividen las zonas del mar
+    love.graphics.setColor(1, 0, 1)
+    love.graphics.line(0, 54, WORLD_WIDTH, 54) -- línea entre cielo y zona alta
+    love.graphics.line(0, 107, WORLD_WIDTH, 107) -- línea entre zona alta y media
+    love.graphics.line(0, 162, WORLD_WIDTH, 162) -- línea entre zona media y baja
+
+
 end
 
 function playing.keypressed(key, scancode, isrepeat)

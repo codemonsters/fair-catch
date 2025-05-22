@@ -4,12 +4,15 @@ Juego donde el objetivo es conseguir el máximo número de puntos capturando pec
 
 ## Mecánica del juego
 
+El juego está programado dentro de un escenario de tamaño fijo con resolución 384x216.
+
 Si un animal no come en un cierto tiempo, muere de hambre.
 
-El mar está dividido verticalmente en tres zonas:
-* Zona alta
-* Zona media
-* Zona baja
+El mar está dividido verticalmente en tres zonas, cada una de 54 píxeles de alto.
+
+* Zona alta (coordenada y entre 54 y 107)
+* Zona media (coordenada y entre 107 y 161)
+* Zona baja (coordenada y entre 162 y 215)
 
 ### Tipos de peces
 
