@@ -38,6 +38,29 @@ Extensiones de utilidad:
 * [LOVE](https://marketplace.visualstudio.com/items?itemName=bschulte.love)
 * [Local Lua Debugger](https://marketplace.visualstudio.com/items?itemName=tomblind.local-lua-debugger-vscode)
 
+Para poder depurar programas Love2D con Local Lua Debugger crea un archivo src/.vscode/launch.json con el siguiente contenido:
+
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Love",
+            "type": "lua-local",
+            "request": "launch",
+            "program": {
+                "command": "/usr/bin/love",
+            },
+            "args": [
+                "${workspaceFolder}"
+            ]
+        },
+    ]
+}
+```
+
+A partir de ahora puedes ejecutar el programa con el debugger pulsando F5. También puedes definir breakpoints de la manera habitual.
+
 ## Enlaces de Interés
 
 * [Documentación LÖVE Game Framework](https://love2d.org/wiki/Main_Page)
