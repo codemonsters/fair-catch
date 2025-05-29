@@ -1,3 +1,5 @@
+local CREATURE_ZONE = 1
+
 newSardine1 = function(x, y, playing_screen)
     local newEntity = {}
     newEntity.x = x
@@ -31,14 +33,15 @@ newSardine1 = function(x, y, playing_screen)
             end,
             update = function(self, dt)
                 self.time_alive = self.time_alive + dt
-
+                local current_zone = self.playing_screen.zones[CREATURE_ZONE]
                 -- si la sardina está fuera de su zona del mar, acercarla hacia ella
-                if self.y < 54 then
+                if self.y < current_zone.y then
                     self.y = self.y + 20 * dt
-                elseif self.y > 107 then
+                elseif self.y > current_zone.y + current_zone.height then
                     self.y = self.y - 20 * dt
                 end
 
+                -- movimiento sinusoidal
                 local last_x = self.x
                 self.x = self.x + self.x_velocity * dt
                 if self.x > last_x then
@@ -48,8 +51,9 @@ newSardine1 = function(x, y, playing_screen)
                     -- se está moviendo hacia la izquierda
                     self.moving_right = false
                 end
-                
-                if (not self.moving_right and self.x < self._state.hitbox.x + self._state.hitbox.width) or (self.moving_right and self.x > WORLD_WIDTH - (self._state.hitbox.x + self._state.hitbox.width)) then
+
+                -- cambio de dirección
+                if (not self.moving_right and self.x < current_zone.x + self._state.hitbox.x + self._state.hitbox.width) or (self.moving_right and self.x > current_zone.x + current_zone.width - (self._state.hitbox.x + self._state.hitbox.width)) then
                     self.x_velocity = -self.x_velocity
                 end
             end,
