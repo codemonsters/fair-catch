@@ -1,17 +1,17 @@
 local playing = {
     name = "Pantalla de juego",
-    img_background = love.graphics.newImage("assets/images/background.png")
+    img_background = love.graphics.newImage("assets/images/background.png"),
+    creatures = {}
 }
 local newSardine1 = require("entities.sardine1")
-local creatures = {};
 
 -- carga este screen
 function playing.load()
-    table.insert(creatures, newSardine1(350, 10))
+    newSardine1(350, 10, playing)
 end
 
 function playing.update(dt)
-    for k, creature in pairs(creatures) do
+    for k, creature in pairs(playing.creatures) do
         creature:update(dt)
     end
 end
@@ -21,7 +21,7 @@ function playing.draw()
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(playing.img_background, 0, 0)
     --love.graphics.print("PARTIDA", 100, 100)
-    for k, creature in pairs(creatures) do
+    for k, creature in pairs(playing.creatures) do
         creature:draw()
     end
 

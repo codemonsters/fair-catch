@@ -1,7 +1,8 @@
-newSardine1 = function(x, y)
+newSardine1 = function(x, y, playing_screen)
     local newEntity = {}
     newEntity.x = x
     newEntity.y = y
+    newEntity.playing_screen = playing_screen
 
     newEntity.draw = function(self)
         self._state.draw(self)
@@ -27,6 +28,10 @@ newSardine1 = function(x, y)
                 self.x_velocity = 10 -- pixels per second
                 self.moving_right = true
                 self.time_alive = 0
+                table.insert(self.playing_screen.creatures, self)
+                if #self.playing_screen.creatures < 3 then
+                    newSardine1(x, y + 20, self.playing_screen)
+                end
             end,
             update = function(self, dt)
                 self.time_alive = self.time_alive + dt
