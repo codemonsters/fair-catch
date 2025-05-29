@@ -7,7 +7,7 @@ local newSardine1 = require("entities.sardine1")
 
 -- carga este screen
 function playing.load()
-    newSardine1(350, 10, playing)
+    table.insert(playing.creatures, newSardine1(350, 10, playing))
 end
 
 function playing.update(dt)
