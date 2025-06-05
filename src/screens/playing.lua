@@ -24,13 +24,17 @@ local playing = {
     },
 }
 local newSardine1 = require("entities.sardine1")
+local newFisher = require("entities.fisher")
 
 -- carga este screen
 function playing.load()
     table.insert(playing.creatures, newSardine1(350, 10, playing))
+    playing.fisher = newFisher()
 end
 
 function playing.update(dt)
+    playing.fisher:update(dt)
+    
     for k, creature in pairs(playing.creatures) do
         creature:update(dt)
     end
@@ -40,6 +44,8 @@ function playing.draw()
     love.graphics.clear(0, 0, 0)
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(playing.img_background, 0, 0)
+
+    playing.fisher:draw()
 
     for k, creature in pairs(playing.creatures) do
         creature:draw()
