@@ -28,13 +28,13 @@ local newFisher = require("entities.fisher")
 
 -- carga este screen
 function playing.load()
-    table.insert(playing.creatures, newSardine1(350, 10, playing))
+    table.insert(playing.creatures, newSardine1(0, playing.zones[1].y + playing.zones[1].height / 2, 1, playing))
     playing.fisher = newFisher()
 end
 
 function playing.update(dt)
     playing.fisher:update(dt)
-    
+
     for k, creature in pairs(playing.creatures) do
         creature:update(dt)
     end
@@ -49,6 +49,7 @@ function playing.draw()
 
     for k, creature in pairs(playing.creatures) do
         creature:draw()
+        creature:draw_hitbox()
     end
 
     -- rectángulos que dividen las zonas del mar
