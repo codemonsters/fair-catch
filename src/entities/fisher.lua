@@ -18,7 +18,6 @@ newFisher = function()
                     image = love.graphics.newImage("assets/images/temporalFisher.png"),
                 }
             },
-
             load = function(self)
             end,
             update = function(self, dt)
