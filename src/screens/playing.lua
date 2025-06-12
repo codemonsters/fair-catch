@@ -25,11 +25,13 @@ local playing = {
 }
 local newSardine1 = require("entities.sardine1")
 local newFisher = require("entities.fisher")
+local newPower = require("entities.power")
 
 -- carga este screen
 function playing.load()
     table.insert(playing.creatures, newSardine1(0, playing.zones[1].y + playing.zones[1].height / 2, 1, playing))
     playing.fisher = newFisher()
+    playing.power = newPower()
 end
 
 function playing.update(dt)
@@ -38,6 +40,8 @@ function playing.update(dt)
     for k, creature in pairs(playing.creatures) do
         creature:update(dt)
     end
+
+    playing.power:update(dt)
 end
 
 function playing.draw()
@@ -52,21 +56,34 @@ function playing.draw()
         creature:draw_hitbox()
     end
 
+    playing.power:draw()
+
     -- rectángulos que dividen las zonas del mar
     love.graphics.setColor(1, 0, 1)
     for k, zone in pairs(playing.zones) do
         love.graphics.rectangle("line", zone.x, zone.y, zone.width, zone.height)
         love.graphics.print(k, zone.x + 1, zone.y)
     end
+
 end
 
 function playing.keypressed(key, scancode, isrepeat)
-    --if scancode == "space" then
-    --    changeScreen(require("screens/playing"))
-    --end
+    if scancode == "space" then
+        if playing.fisher._state == playing.fisher.states.resting and playing.power._state == playing.power.states.hidden then
+            -- empezar a cargar el lance
+            playing.power:setState(playing.power.states.charging)
+        else
+        end
+    end
 end
 
 function playing.keyreleased(key, scancode, isrepeat)
+    if scancode == "space" then
+        if playing.power._state == playing.power.states.charging then
+            -- lanzar la caña
+            playing.power:setState(playing.power.states.thrown)
+        end
+    end
 end
 
 return playing
