@@ -1,6 +1,7 @@
 local playing = {
     name = "Pantalla de juego",
-    img_background = love.graphics.newImage("assets/images/background.png"),
+    img_sky = love.graphics.newImage("assets/images/sky.png"),
+    img_water = love.graphics.newImage("assets/images/water.png"),
     creatures = {},
     zones = {
         [1] = {
@@ -47,8 +48,9 @@ end
 function playing.draw()
     love.graphics.clear(0, 0, 0)
     love.graphics.setColor(1, 1, 1)
-    love.graphics.draw(playing.img_background, 0, 0)
+    love.graphics.draw(playing.img_sky, 0, 0)
 
+    love.graphics.draw(playing.img_water, 0, 0)
     playing.fisher:draw()
 
     for k, creature in pairs(playing.creatures) do
