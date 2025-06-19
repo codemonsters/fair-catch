@@ -27,12 +27,14 @@ local playing = {
 local newSardine1 = require("entities.sardine1")
 local newFisher = require("entities.fisher")
 local newPower = require("entities.power")
+local newSun = require("entities.sun")
 
 -- carga este screen
 function playing.load()
     table.insert(playing.creatures, newSardine1(0, playing.zones[1].y + playing.zones[1].height / 2, 1, playing))
     playing.fisher = newFisher()
     playing.power = newPower()
+    playing.sun = newSun()
 end
 
 function playing.update(dt)
@@ -43,14 +45,15 @@ function playing.update(dt)
     end
 
     playing.power:update(dt)
+    playing.sun:update(dt)
 end
 
 function playing.draw()
     love.graphics.clear(0, 0, 0)
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(playing.img_sky, 0, 0)
-
-    love.graphics.draw(playing.img_water, 0, 0)
+    playing.sun:draw()
+    --love.graphics.draw(playing.img_water, 0, 0)
     playing.fisher:draw()
 
     for k, creature in pairs(playing.creatures) do
